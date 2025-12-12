@@ -1,0 +1,144 @@
+{
+  "business": {
+    "name": "Commercial Bathroom Cleaning",
+    "city": "Chicago, IL",
+    "areasServedShort": "Chicago + nearby suburbs (Cook County)",
+    "phone_display": "773-808-4447",
+    "phone_e164": "+17738084447",
+    "email": "support@webmastereric.com"
+  },
+  "links": {
+    "depositLink": "https://store.webmastereric.com/product/bathroom-cleaning-ticket/",
+    "deepCleanPayLink": "https://store.webmastereric.com/product/bathroom-deep-clean/"
+  },
+  "deposit": {
+    "amount": 29,
+    "label": "Pay Deposit ($29 Ticket)",
+    "termsShort": "Deposit is required to submit a dispatch request.",
+    "termsLong": "Your requested time is a request window, not confirmed until we reply. Deposit becomes non-refundable once scheduling/sourcing begins."
+  },
+  "responseExpectations": {
+    "headline": "Priority queue",
+    "line": "Once you send, you’re in the priority queue. Expect a confirmation text."
+  },
+  "timeline": {
+    "minimumNoticeHours": 24,
+    "standardWindow": "3–5 business days",
+    "rushWindow": "1–2 business days",
+    "emergencyWindow": "Same-day (subject to availability)"
+  },
+  "scheduling": {
+    "timezoneLabel": "America/Chicago",
+    "daysToShow": 14,
+    "timeSlots": ["8:00 AM", "10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM"],
+    "note": "You’re requesting a window. We confirm or propose the earliest available slot."
+  },
+  "businessTypes": [
+    "Office / Building",
+    "Restaurant / Bar",
+    "Retail / Storefront",
+    "Industrial / Warehouse",
+    "Medical / Clinic",
+    "Property Management",
+    "Other"
+  ],
+  "pricing": {
+    "currency": "USD",
+    "rangesAreExamples": true,
+    "note": "Ranges shown are examples. Final quote depends on scope, access, and severity."
+  },
+  "services": [
+    {
+      "id": "deep_clean_single",
+      "name": "Single commercial bathroom deep clean",
+      "description": "Heavy reset: fixtures, floors, touch points, odor-focused detailing.",
+      "baseLow": 325,
+      "baseHigh": 650
+    },
+    {
+      "id": "multi_restroom",
+      "name": "Multiple bathrooms / larger restroom area",
+      "description": "Multi-stall restrooms, multiple rooms, or larger footprint commercial spaces.",
+      "baseLow": 650,
+      "baseHigh": 1400
+    },
+    {
+      "id": "turnover_reset",
+      "name": "Move-out / turnover restroom reset",
+      "description": "Tenant turnover, lease transitions, or property reconditioning.",
+      "baseLow": 450,
+      "baseHigh": 1100
+    }
+  ],
+  "addons": [
+    {
+      "id": "bio_odor",
+      "name": "Odor / severity assessment",
+      "low": 75,
+      "high": 200,
+      "description": "Strong odor, unknown severity, or risk factors. Confirmed after details."
+    },
+    {
+      "id": "floor_build_up",
+      "name": "Floor build-up / grout detailing",
+      "low": 60,
+      "high": 180,
+      "description": "Extra floor pass for heavy build-up and grout attention."
+    },
+    {
+      "id": "after_hours",
+      "name": "After-hours / restricted access window",
+      "low": 50,
+      "high": 200,
+      "description": "Late night access, tight windows, special entry rules."
+    },
+    {
+      "id": "restock",
+      "name": "Restock basics coordination (paper/soap)",
+      "low": 25,
+      "high": 85,
+      "description": "We coordinate basic restock with the crew if needed."
+    }
+  ],
+  "urgency": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "markupType": "percent",
+      "markupValue": 0,
+      "windowLabel": "timeline.standardWindow"
+    },
+    {
+      "id": "rush",
+      "name": "Rush",
+      "markupType": "percent",
+      "markupValue": 20,
+      "windowLabel": "timeline.rushWindow",
+      "disclaimerLine": "Rush requests include a higher coordination fee and tighter scheduling."
+    },
+    {
+      "id": "emergency",
+      "name": "Emergency / Same-Day",
+      "markupType": "percent",
+      "markupValue": 0,
+      "windowLabel": "timeline.emergencyWindow",
+      "disclaimerLine": "Emergency / same-day is subject to availability. Any rush fee is confirmed after details.",
+      "emergencyPayLink": null,
+      "emergencyPayLabel": "Pay Emergency Fee"
+    }
+  ],
+  "smsTemplates": {
+    "dispatchRequest": "DISPATCH REQUEST — Commercial Bathroom Cleaning\\n\\nDeposit: CUSTOMER CONFIRMS PAID\\n\\nRequested Window:\\nDate: {{date}}\\nTime: {{time}}\\n\\nBusiness Type: {{biz_type}}\\n\\nOn-site Contact:\\nName: {{name}}\\nPhone: {{customer_phone}}\\nEmail: {{customer_email}}\\n\\nService:\\nCity: {{city}}\\nService: {{service}}\\nAdd-ons: {{addons}}\\nUrgency: {{urgency}}\\nEstimate (Example): {{estimate}}\\n\\nAddress:\\n{{address}}\\n\\nAccess / Notes:\\n{{notes}}"
+  },
+  "seo": {
+    "primaryKeyword": "commercial bathroom cleaning chicago",
+    "secondaryKeywords": [
+      "commercial bathroom deep cleaning chicago",
+      "emergency bathroom cleaning chicago",
+      "restroom deep clean chicago",
+      "commercial restroom cleaning chicago"
+    ],
+    "siteTitle": "Commercial Bathroom Cleaning Chicago | Priority Dispatch Deep Cleaning",
+    "siteDescription": "High-intent dispatch request form for commercial bathroom cleaning in Chicago. Configure service, request a time window, pay deposit, and send dispatch details in one tap."
+  }
+}
