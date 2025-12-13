@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Commercial Bathroom Cleaning Chicago | Priority Dispatch Deep Cleaning</title>
-  <meta name="description" content="High-intent dispatch request form for commercial bathroom cleaning in Chicago. Configure service, request a time window, pay deposit, and send dispatch details in one tap." />
+  <meta name="description" content="Request commercial bathroom deep cleaning in Chicago. Configure service, request a window, pay deposit, and send dispatch details in one tap." />
   <meta name="robots" content="index,follow" />
 
   <!-- Search Console (paste token later) -->
   <meta name="google-site-verification" content="PASTE_GSC_TOKEN_HERE" />
 
-  <!-- Styles + tracking -->
   <link rel="stylesheet" href="assets/styles.css" />
   <script src="assets/tracking.js"></script>
 
-  <!-- LocalBusiness schema (safe, factual) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -34,57 +32,69 @@
     <div class="topbar__inner">
       <div class="brand">
         <div class="brand__name" id="bizName">Commercial Bathroom Cleaning</div>
-        <div class="brand__meta" id="bizMeta">Chicago • Dispatch Scheduling</div>
+        <div class="brand__meta" id="bizMeta">Chicago, IL • Priority Dispatch</div>
       </div>
 
       <div class="status">
-        <span class="chip chip--live" id="liveChip">Dispatch Mode</span>
-        <span class="chip" id="noticeChip">Min 24h notice</span>
+        <span class="chip chip--live">Dispatch Console</span>
+        <span class="chip" id="noticeChip">Min notice</span>
       </div>
     </div>
   </header>
 
-  <div class="alertStrip" id="alertStrip" role="status" aria-live="polite">
+  <div class="alertStrip" role="status" aria-live="polite">
     <div class="alertStrip__inner">
-      <div class="alertStrip__icon">⚠️</div>
+      <div class="alertStrip__icon">🚨</div>
       <div class="alertStrip__text">
-        <strong>Fast path:</strong> Configure → Request a slot → Pay deposit → Send dispatch request.
-        <span class="muted">You’ll get confirmation or the earliest alternative.</span>
+        <strong>High-intent only:</strong> Submit a dispatch-ready request.
+        <span class="muted">Confirmation by text. Emergency subject to availability.</span>
       </div>
     </div>
   </div>
 
   <main class="wrap layout">
     <section class="card card--primary">
-      <div class="cardHead">
-        <h1 class="h1" id="headline">Commercial Bathroom Cleaning Chicago — Priority Dispatch Deep Cleaning</h1>
-        <p class="sub" id="subhead">Built for urgent situations. Submit a dispatch-ready request in one pass.</p>
+
+      <div class="hero">
+        <h1 class="h1">Commercial Bathroom Cleaning Chicago</h1>
+        <p class="sub">
+          This is a <strong>priority dispatch</strong> request system for commercial restrooms.
+          You configure what you need, request a window, pay the deposit, then send the full dispatch details in one tap.
+        </p>
+
+        <div class="hero__badges">
+          <span class="badge badge--hot">Emergency feel</span>
+          <span class="badge badge--gold">Deposit-first</span>
+          <span class="badge badge--cool">Confirmation by text</span>
+        </div>
 
         <div class="whoFor">
-          <div class="whoFor__title">Who this is for</div>
+          <div class="whoFor__title">Built for</div>
           <ul class="whoFor__list">
-            <li>Office buildings & property managers</li>
-            <li>Restaurants / bars</li>
+            <li>Property managers & office buildings</li>
+            <li>Restaurants / bars / venues</li>
             <li>Retail, warehouses, storefronts</li>
           </ul>
         </div>
+
+        <div class="stepper" aria-label="Dispatch steps">
+          <div class="step step--active"><b>1</b><span>Configure</span></div>
+          <div class="step"><b>2</b><span>Request Window</span></div>
+          <div class="step"><b>3</b><span>Send Dispatch</span></div>
+        </div>
       </div>
 
-      <div class="stepper" aria-label="Dispatch steps">
-        <div class="step step--active" id="step1">1<span>Configure</span></div>
-        <div class="step" id="step2">2<span>Schedule</span></div>
-        <div class="step" id="step3">3<span>Dispatch</span></div>
-      </div>
+      <div class="divider"></div>
 
       <div class="grid2">
         <div>
           <label class="label" for="serviceSelect">Service type</label>
-          <select id="serviceSelect" class="select"></select>
+          <select id="serviceSelect"></select>
         </div>
 
         <div>
           <label class="label" for="urgencySelect">Urgency</label>
-          <select id="urgencySelect" class="select"></select>
+          <select id="urgencySelect"></select>
         </div>
       </div>
 
@@ -93,77 +103,73 @@
 
       <div class="divider"></div>
 
-      <div class="sectionTitle">
-        <h2 class="h2">Request a slot</h2>
-        <div class="hint muted" id="scheduleNote">Request windows only. We confirm or propose the earliest available slot.</div>
-      </div>
+      <h2 class="h2">Request a time window</h2>
+      <p class="sub muted" id="scheduleNote">You’re requesting a window. We confirm or propose the earliest available slot.</p>
 
       <div class="grid2">
         <div>
           <label class="label" for="dateSelect">Requested date</label>
-          <select id="dateSelect" class="select"></select>
+          <select id="dateSelect"></select>
         </div>
         <div>
-          <label class="label" for="timeSelect">Requested time window</label>
-          <select id="timeSelect" class="select"></select>
+          <label class="label" for="timeSelect">Requested time</label>
+          <select id="timeSelect"></select>
         </div>
       </div>
 
       <div class="divider"></div>
 
-      <div class="sectionTitle">
-        <h2 class="h2">Business + on-site contact</h2>
-        <div class="hint muted">This makes your dispatch request actionable (no back-and-forth).</div>
-      </div>
+      <h2 class="h2">Business + on-site contact</h2>
+      <p class="sub muted">This prevents delays. If it’s missing, you won’t be able to send dispatch.</p>
 
       <div class="grid2">
         <div>
           <label class="label" for="bizTypeSelect">Business type</label>
-          <select id="bizTypeSelect" class="select"></select>
+          <select id="bizTypeSelect"></select>
         </div>
         <div>
           <label class="label" for="address">Service address</label>
-          <input id="address" class="select" type="text" placeholder="Street, City, ZIP" autocomplete="street-address" />
+          <input id="address" type="text" placeholder="Street, City, ZIP" autocomplete="street-address" />
         </div>
       </div>
 
       <div class="grid2">
         <div>
           <label class="label" for="contactName">Contact name</label>
-          <input id="contactName" class="select" type="text" placeholder="Full name" autocomplete="name" />
+          <input id="contactName" type="text" placeholder="Full name" autocomplete="name" />
         </div>
         <div>
           <label class="label" for="contactPhone">Contact phone</label>
-          <input id="contactPhone" class="select" type="tel" placeholder="Phone number" autocomplete="tel" />
+          <input id="contactPhone" type="tel" placeholder="Phone number" autocomplete="tel" />
         </div>
       </div>
 
       <div class="grid2">
         <div>
           <label class="label" for="contactEmail">Contact email</label>
-          <input id="contactEmail" class="select" type="email" placeholder="Email address" autocomplete="email" />
+          <input id="contactEmail" type="email" placeholder="Email address" autocomplete="email" />
         </div>
         <div>
-          <label class="label" for="notes">Access notes (optional)</label>
-          <textarea id="notes" class="select" rows="3" placeholder="Gate code, restroom count, severity, after-hours rules, who to ask for, etc."></textarea>
+          <label class="label" for="notes">Access / severity notes (optional)</label>
+          <textarea id="notes" rows="3" placeholder="Gate code, restroom count, odor, after-hours rules, who to ask for, etc."></textarea>
         </div>
       </div>
 
       <div class="divider"></div>
 
-      <div class="readyBox" id="readyBox">
-        <div class="readyBox__left">
-          <div class="readyBox__title">Dispatch Readiness</div>
-          <div class="readyBox__sub" id="readySub">Complete required details + confirm deposit to unlock Send.</div>
+      <div class="readyBox">
+        <div>
+          <div style="font-weight:950; font-size:13px;">Dispatch readiness</div>
+          <div class="tiny muted" id="readySub">Complete required fields + confirm deposit to unlock Send.</div>
         </div>
-        <div class="readyBox__right">
+        <div>
           <span class="chip" id="readyChip">Not ready</span>
         </div>
       </div>
 
       <label class="label">
         <input id="depositConfirm" type="checkbox" />
-        I paid the $29 deposit (required to submit)
+        I paid the deposit (required to submit)
       </label>
 
       <div class="ctaRow">
@@ -176,14 +182,13 @@
         Once you send, you’re in the <strong>priority queue</strong>. Expect a confirmation text.
       </p>
 
-      <div class="tiny muted">
+      <p class="tiny muted">
         Serving: <strong>Chicago + nearby suburbs (Cook County)</strong>. Emergency/same-day is subject to availability.
         Read the <a href="disclaimer.html">disclaimer</a>.
-      </div>
+      </p>
 
       <div class="footerSeo">
-        Looking for <strong>commercial bathroom cleaning in Chicago</strong>? Use this dispatch request form to submit a high-intent request fast.
-        See keyword pages:
+        Related pages:
         <a href="commercial-bathroom-cleaning-chicago.html">Commercial Bathroom Cleaning Chicago</a> •
         <a href="emergency-bathroom-deep-clean-chicago.html">Emergency Bathroom Deep Clean Chicago</a> •
         <a href="commercial-restroom-cleaning-chicago.html">Commercial Restroom Cleaning Chicago</a>
@@ -192,11 +197,11 @@
 
     <aside class="card card--side">
       <div class="sideTop">
-        <div class="sideTop__title">Live Summary</div>
-        <div class="sideTop__sub">This is what we’ll receive as your dispatch request.</div>
+        <div class="sideTop__title">Live Dispatch Summary</div>
+        <div class="sideTop__sub">This is exactly what gets texted when you press Send.</div>
       </div>
 
-      <div class="summaryPanel">
+      <div style="margin-top:10px;">
         <div class="kpi">
           <div class="kpi__label">Estimate range</div>
           <div class="kpi__value" id="estimateValue">$—</div>
@@ -212,44 +217,37 @@
 
         <div class="divider"></div>
 
-        <div class="afterPanel">
-          <div class="afterPanel__title"><strong>After you submit</strong></div>
-          <ol class="afterPanel__steps">
-            <li>We review details.</li>
-            <li>We confirm your requested window or propose the earliest alternative.</li>
-            <li>After confirmation, you may use the deep-clean pay link if needed.</li>
-          </ol>
-
-          <a class="btn btn--ghost" id="payDeepCleanBtn" href="#" target="_blank" rel="noopener">
-            Pay for Deep Clean (after scheduling)
-          </a>
-
-          <a class="btn btn--warn" id="payEmergencyBtn" href="#" target="_blank" rel="noopener" style="display:none;">
-            Pay Emergency Fee
-          </a>
-
-          <div class="tiny muted">
-            Estimates are examples. Final quote depends on scope, access, and severity.
-          </div>
+        <div class="tiny muted" style="margin-bottom:8px;">
+          After you submit: we confirm your window by text (or propose the earliest alternative).
         </div>
-      </div>
 
-      <div class="faqMini">
-        <div class="faqMini__title"><strong>Quick rules</strong></div>
-        <ul class="faqMini__list">
-          <li><strong>Deposit-first.</strong> Required to submit.</li>
-          <li><strong>Emergency is subject to availability.</strong> Confirmed fast.</li>
-          <li><strong>No accounts.</strong> No signup. No friction.</li>
-        </ul>
+        <a class="btn btn--ghost" id="payDeepCleanBtn" href="#" target="_blank" rel="noopener">
+          Pay for Deep Clean (after scheduling)
+        </a>
+
+        <a class="btn btn--warn" id="payEmergencyBtn" href="#" target="_blank" rel="noopener" style="display:none;">
+          Pay Emergency Fee
+        </a>
+
+        <div class="divider"></div>
+
+        <div class="tiny muted">
+          Rules:
+          <ul class="faqMini__list">
+            <li><strong>Deposit-first.</strong> Required to submit.</li>
+            <li><strong>Emergency is availability-based.</strong> Confirmed fast.</li>
+            <li><strong>No accounts.</strong> No signup. No friction.</li>
+          </ul>
+        </div>
       </div>
     </aside>
   </main>
 
   <div class="sticky">
     <div class="sticky__inner">
-      <div class="sticky__left">
+      <div>
         <div class="sticky__title">Priority Dispatch</div>
-        <div class="sticky__sub" id="stickySub">Complete required details + confirm deposit to unlock Send.</div>
+        <div class="sticky__sub" id="stickySub">Complete required fields + confirm deposit to unlock Send.</div>
       </div>
       <div class="sticky__right">
         <a class="btn btn--primary btn--sm" id="payDepositBtnSticky" href="#" target="_blank" rel="noopener">Pay Deposit</a>
