@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Commercial Bathroom Cleaning Chicago | Priority Dispatch Deep Cleaning</title>
-  <meta name="description" content="Request commercial bathroom deep cleaning in Chicago. Configure service, request a window, pay deposit, and send dispatch details in one tap." />
+  <title>Commercial Bathroom Cleaning Chicago | Priority Dispatch</title>
+  <meta name="description" content="Priority dispatch request for commercial bathroom cleaning in Chicago. Pay deposit, request a window, and send dispatch details in one tap." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Search Console (paste token later) -->
   <meta name="google-site-verification" content="PASTE_GSC_TOKEN_HERE" />
 
   <link rel="stylesheet" href="assets/styles.css" />
@@ -46,8 +45,8 @@
     <div class="alertStrip__inner">
       <div class="alertStrip__icon">🚨</div>
       <div class="alertStrip__text">
-        <strong>High-intent only:</strong> Submit a dispatch-ready request.
-        <span class="muted">Confirmation by text. Emergency subject to availability.</span>
+        <strong>Fast path:</strong> Pay deposit → request a window → send dispatch details.
+        <span class="muted">You’ll receive a confirmation text.</span>
       </div>
     </div>
   </div>
@@ -58,14 +57,15 @@
       <div class="hero">
         <h1 class="h1">Commercial Bathroom Cleaning Chicago</h1>
         <p class="sub">
-          This is a <strong>priority dispatch</strong> request system for commercial restrooms.
-          You configure what you need, request a window, pay the deposit, then send the full dispatch details in one tap.
+          WooCommerce handles pricing and service options.
+          This page is built for one thing: <strong>fast scheduling dispatch</strong>.
+          Submit once. Get a confirmation text or the earliest alternative.
         </p>
 
         <div class="hero__badges">
-          <span class="badge badge--hot">Emergency feel</span>
+          <span class="badge badge--hot">Emergency-ready UX</span>
           <span class="badge badge--gold">Deposit-first</span>
-          <span class="badge badge--cool">Confirmation by text</span>
+          <span class="badge badge--cool">Confirmed by text</span>
         </div>
 
         <div class="whoFor">
@@ -78,7 +78,7 @@
         </div>
 
         <div class="stepper" aria-label="Dispatch steps">
-          <div class="step step--active"><b>1</b><span>Configure</span></div>
+          <div class="step step--active"><b>1</b><span>Pay Deposit</span></div>
           <div class="step"><b>2</b><span>Request Window</span></div>
           <div class="step"><b>3</b><span>Send Dispatch</span></div>
         </div>
@@ -86,25 +86,34 @@
 
       <div class="divider"></div>
 
-      <div class="grid2">
-        <div>
-          <label class="label" for="serviceSelect">Service type</label>
-          <select id="serviceSelect"></select>
-        </div>
+      <h2 class="h2">Step 1 — Deposit (required to submit)</h2>
+      <p class="sub muted">Deposit places you in the priority queue so scheduling can begin.</p>
 
+      <div class="ctaRow">
+        <a class="btn btn--primary" id="payDepositBtn" href="#" target="_blank" rel="noopener">Pay Deposit</a>
+        <a class="btn btn--ghost" id="payDeepCleanBtn" href="#" target="_blank" rel="noopener">Pay Deep Clean (after confirmation)</a>
+      </div>
+
+      <label class="label">
+        <input id="depositConfirm" type="checkbox" />
+        I paid the deposit (required to submit dispatch)
+      </label>
+
+      <div class="divider"></div>
+
+      <h2 class="h2">Step 2 — Request a time window</h2>
+      <p class="sub muted" id="scheduleNote">You’re requesting a window. We confirm or propose the earliest available slot.</p>
+
+      <div class="grid2">
         <div>
           <label class="label" for="urgencySelect">Urgency</label>
           <select id="urgencySelect"></select>
         </div>
+        <div>
+          <label class="label" for="bizTypeSelect">Business type</label>
+          <select id="bizTypeSelect"></select>
+        </div>
       </div>
-
-      <label class="label">Add-ons</label>
-      <div id="addonsWrap" class="addons"></div>
-
-      <div class="divider"></div>
-
-      <h2 class="h2">Request a time window</h2>
-      <p class="sub muted" id="scheduleNote">You’re requesting a window. We confirm or propose the earliest available slot.</p>
 
       <div class="grid2">
         <div>
@@ -119,40 +128,34 @@
 
       <div class="divider"></div>
 
-      <h2 class="h2">Business + on-site contact</h2>
-      <p class="sub muted">This prevents delays. If it’s missing, you won’t be able to send dispatch.</p>
+      <h2 class="h2">Step 3 — Dispatch details</h2>
+      <p class="sub muted">Required fields unlock Send. This prevents back-and-forth.</p>
 
       <div class="grid2">
-        <div>
-          <label class="label" for="bizTypeSelect">Business type</label>
-          <select id="bizTypeSelect"></select>
-        </div>
         <div>
           <label class="label" for="address">Service address</label>
           <input id="address" type="text" placeholder="Street, City, ZIP" autocomplete="street-address" />
         </div>
-      </div>
-
-      <div class="grid2">
         <div>
-          <label class="label" for="contactName">Contact name</label>
+          <label class="label" for="contactName">On-site contact name</label>
           <input id="contactName" type="text" placeholder="Full name" autocomplete="name" />
         </div>
-        <div>
-          <label class="label" for="contactPhone">Contact phone</label>
-          <input id="contactPhone" type="tel" placeholder="Phone number" autocomplete="tel" />
-        </div>
       </div>
 
       <div class="grid2">
         <div>
-          <label class="label" for="contactEmail">Contact email</label>
-          <input id="contactEmail" type="email" placeholder="Email address" autocomplete="email" />
+          <label class="label" for="contactPhone">On-site contact phone</label>
+          <input id="contactPhone" type="tel" placeholder="Phone number" autocomplete="tel" />
         </div>
         <div>
-          <label class="label" for="notes">Access / severity notes (optional)</label>
-          <textarea id="notes" rows="3" placeholder="Gate code, restroom count, odor, after-hours rules, who to ask for, etc."></textarea>
+          <label class="label" for="contactEmail">On-site contact email</label>
+          <input id="contactEmail" type="email" placeholder="Email address" autocomplete="email" />
         </div>
+      </div>
+
+      <div>
+        <label class="label" for="notes">Access / severity notes (optional)</label>
+        <textarea id="notes" rows="3" placeholder="Gate code, restroom count, odor, after-hours rules, who to ask for, etc."></textarea>
       </div>
 
       <div class="divider"></div>
@@ -160,21 +163,16 @@
       <div class="readyBox">
         <div>
           <div style="font-weight:950; font-size:13px;">Dispatch readiness</div>
-          <div class="tiny muted" id="readySub">Complete required fields + confirm deposit to unlock Send.</div>
+          <div class="tiny muted" id="readySub">Pay deposit + confirm + fill required fields to unlock Send.</div>
         </div>
         <div>
           <span class="chip" id="readyChip">Not ready</span>
         </div>
       </div>
 
-      <label class="label">
-        <input id="depositConfirm" type="checkbox" />
-        I paid the deposit (required to submit)
-      </label>
-
       <div class="ctaRow">
-        <a class="btn btn--primary" id="payDepositBtn" href="#" target="_blank" rel="noopener">Pay Deposit</a>
-        <button class="btn btn--dispatch" id="sendBookingTextBtn" type="button" disabled>Send Dispatch Request</button>
+        <button class="btn btn--dispatch" id="sendBookingTextBtn" type="button" disabled>Send Dispatch Request (Text)</button>
+        <a class="btn btn--ghost" id="emailBtn" href="#" aria-disabled="true">Send Dispatch (Email)</a>
         <a class="btn btn--ghost" id="callBtn" href="#">Call</a>
       </div>
 
@@ -197,48 +195,28 @@
 
     <aside class="card card--side">
       <div class="sideTop">
-        <div class="sideTop__title">Live Dispatch Summary</div>
-        <div class="sideTop__sub">This is exactly what gets texted when you press Send.</div>
+        <div class="sideTop__title">What happens after you send</div>
+        <div class="sideTop__sub">No fluff. Just confirmation.</div>
       </div>
 
-      <div style="margin-top:10px;">
-        <div class="kpi">
-          <div class="kpi__label">Estimate range</div>
-          <div class="kpi__value" id="estimateValue">$—</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi__label">Buffer window</div>
-          <div class="kpi__value" id="timelineValue">—</div>
-        </div>
+      <div class="divider"></div>
 
-        <div class="note note--urgent" id="emergencyNote"></div>
+      <ol class="afterPanel__steps">
+        <li>We review your dispatch details.</li>
+        <li>We confirm your requested window or propose the earliest available slot.</li>
+        <li>If needed, you pay the deep clean link after confirmation.</li>
+      </ol>
 
-        <div class="summaryText" id="summaryText">—</div>
+      <div class="divider"></div>
 
-        <div class="divider"></div>
+      <div class="note">
+        Tip: If you want the fastest confirmation, include the exact address and access rules (after-hours, keys, codes).
+      </div>
 
-        <div class="tiny muted" style="margin-bottom:8px;">
-          After you submit: we confirm your window by text (or propose the earliest alternative).
-        </div>
+      <div class="divider"></div>
 
-        <a class="btn btn--ghost" id="payDeepCleanBtn" href="#" target="_blank" rel="noopener">
-          Pay for Deep Clean (after scheduling)
-        </a>
-
-        <a class="btn btn--warn" id="payEmergencyBtn" href="#" target="_blank" rel="noopener" style="display:none;">
-          Pay Emergency Fee
-        </a>
-
-        <div class="divider"></div>
-
-        <div class="tiny muted">
-          Rules:
-          <ul class="faqMini__list">
-            <li><strong>Deposit-first.</strong> Required to submit.</li>
-            <li><strong>Emergency is availability-based.</strong> Confirmed fast.</li>
-            <li><strong>No accounts.</strong> No signup. No friction.</li>
-          </ul>
-        </div>
+      <div class="tiny muted">
+        Emergency/same-day is availability-based. We move fast, but we won’t lie about timing.
       </div>
     </aside>
   </main>
@@ -247,7 +225,7 @@
     <div class="sticky__inner">
       <div>
         <div class="sticky__title">Priority Dispatch</div>
-        <div class="sticky__sub" id="stickySub">Complete required fields + confirm deposit to unlock Send.</div>
+        <div class="sticky__sub" id="stickySub">Pay deposit + confirm + fill required fields.</div>
       </div>
       <div class="sticky__right">
         <a class="btn btn--primary btn--sm" id="payDepositBtnSticky" href="#" target="_blank" rel="noopener">Pay Deposit</a>
