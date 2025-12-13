@@ -5,13 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Commercial Bathroom Cleaning Chicago | Priority Dispatch</title>
-  <meta name="description" content="Priority dispatch request for commercial bathroom cleaning in Chicago. Pay deposit, request a window, and send dispatch details in one tap." />
+  <meta name="description" content="Priority dispatch request for commercial bathroom cleaning in Chicago. Pay deposit, pick a window, send dispatch details by text." />
   <meta name="robots" content="index,follow" />
 
   <meta name="google-site-verification" content="PASTE_GSC_TOKEN_HERE" />
 
   <link rel="stylesheet" href="assets/styles.css" />
-  <script src="assets/tracking.js"></script>
+
+  <style>
+    /* Button groups (inline so nothing can fail) */
+    .segRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .seg{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:#eef2ff;
+      padding:10px 12px;
+      border-radius:16px;
+      font-weight:950;
+      font-size:13px;
+      cursor:pointer;
+      text-align:left;
+      min-width: 140px;
+    }
+    .seg--active{
+      border-color: rgba(255, 70, 70, 0.70);
+      background: rgba(255, 70, 70, 0.18);
+    }
+    .seg__top{ font-size:13px; }
+    .seg__bot{ font-size:12px; opacity:.78; margin-top:2px; }
+    .helpLine{ margin-top:10px; font-size:12px; opacity:.82; }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -30,13 +53,14 @@
   <header class="topbar">
     <div class="topbar__inner">
       <div class="brand">
-        <div class="brand__name" id="bizName">Commercial Bathroom Cleaning</div>
-        <div class="brand__meta" id="bizMeta">Chicago, IL • Priority Dispatch</div>
+        <div class="brand__name">Commercial Bathroom Cleaning</div>
+        <div class="brand__meta">Chicago, IL • Priority Dispatch</div>
       </div>
 
       <div class="status">
         <span class="chip chip--live">Dispatch Console</span>
-        <span class="chip" id="noticeChip">Min notice</span>
+        <span class="chip">Min 24h notice</span>
+        <span class="chip" id="jsStatus">JS: loading…</span>
       </div>
     </div>
   </header>
@@ -45,90 +69,83 @@
     <div class="alertStrip__inner">
       <div class="alertStrip__icon">🚨</div>
       <div class="alertStrip__text">
-        <strong>Fast path:</strong> Pay deposit → request a window → send dispatch details.
-        <span class="muted">You’ll receive a confirmation text.</span>
+        <strong>Fast path:</strong> Pay deposit → pick a window → send dispatch details.
+        <span class="muted">Expect a confirmation text.</span>
       </div>
     </div>
   </div>
 
   <main class="wrap layout">
     <section class="card card--primary">
-
       <div class="hero">
         <h1 class="h1">Commercial Bathroom Cleaning Chicago</h1>
         <p class="sub">
-          WooCommerce handles pricing and service options.
-          This page is built for one thing: <strong>fast scheduling dispatch</strong>.
-          Submit once. Get a confirmation text or the earliest alternative.
+          WooCommerce handles products and pricing. This page handles <strong>scheduling dispatch</strong>.
+          Tap through and send.
         </p>
 
         <div class="hero__badges">
           <span class="badge badge--hot">Emergency-ready UX</span>
           <span class="badge badge--gold">Deposit-first</span>
-          <span class="badge badge--cool">Confirmed by text</span>
-        </div>
-
-        <div class="whoFor">
-          <div class="whoFor__title">Built for</div>
-          <ul class="whoFor__list">
-            <li>Property managers & office buildings</li>
-            <li>Restaurants / bars / venues</li>
-            <li>Retail, warehouses, storefronts</li>
-          </ul>
-        </div>
-
-        <div class="stepper" aria-label="Dispatch steps">
-          <div class="step step--active"><b>1</b><span>Pay Deposit</span></div>
-          <div class="step"><b>2</b><span>Request Window</span></div>
-          <div class="step"><b>3</b><span>Send Dispatch</span></div>
+          <span class="badge badge--cool">Confirmation by text</span>
         </div>
       </div>
 
       <div class="divider"></div>
 
-      <h2 class="h2">Step 1 — Deposit (required to submit)</h2>
+      <h2 class="h2">Step 1 — Deposit (required)</h2>
       <p class="sub muted">Deposit places you in the priority queue so scheduling can begin.</p>
-
       <div class="ctaRow">
-        <a class="btn btn--primary" id="payDepositBtn" href="#" target="_blank" rel="noopener">Pay Deposit</a>
-        <a class="btn btn--ghost" id="payDeepCleanBtn" href="#" target="_blank" rel="noopener">Pay Deep Clean (after confirmation)</a>
+        <a class="btn btn--primary" id="payDepositBtn" href="https://store.webmastereric.com/product/bathroom-cleaning-ticket/" target="_blank" rel="noopener">Pay $29 Deposit</a>
+        <a class="btn btn--ghost" id="payDeepCleanBtn" href="https://store.webmastereric.com/product/bathroom-deep-clean/" target="_blank" rel="noopener">Deep Clean Pay Link (after confirmation)</a>
       </div>
 
       <label class="label">
         <input id="depositConfirm" type="checkbox" />
-        I paid the deposit (required to submit dispatch)
+        I paid the deposit (required to send dispatch)
       </label>
 
       <div class="divider"></div>
 
-      <h2 class="h2">Step 2 — Request a time window</h2>
-      <p class="sub muted" id="scheduleNote">You’re requesting a window. We confirm or propose the earliest available slot.</p>
-
-      <div class="grid2">
-        <div>
-          <label class="label" for="urgencySelect">Urgency</label>
-          <select id="urgencySelect"></select>
-        </div>
-        <div>
-          <label class="label" for="bizTypeSelect">Business type</label>
-          <select id="bizTypeSelect"></select>
-        </div>
+      <h2 class="h2">Step 2 — Choose urgency</h2>
+      <div class="segRow" data-group="urgency">
+        <button class="seg seg--active" type="button" data-value="Standard" aria-pressed="true">Standard</button>
+        <button class="seg" type="button" data-value="Rush" aria-pressed="false">Rush</button>
+        <button class="seg" type="button" data-value="Emergency (Same Day Request)" aria-pressed="false">Emergency (Same Day)</button>
       </div>
+      <div class="helpLine">Emergency is availability-based. We confirm by text or propose the earliest alternative.</div>
 
-      <div class="grid2">
-        <div>
-          <label class="label" for="dateSelect">Requested date</label>
-          <select id="dateSelect"></select>
-        </div>
-        <div>
-          <label class="label" for="timeSelect">Requested time</label>
-          <select id="timeSelect"></select>
-        </div>
+      <div class="divider"></div>
+
+      <h2 class="h2">Step 3 — Choose business type</h2>
+      <div class="segRow" data-group="biz">
+        <button class="seg seg--active" type="button" data-value="Office / Building" aria-pressed="true">Office / Building</button>
+        <button class="seg" type="button" data-value="Restaurant / Bar" aria-pressed="false">Restaurant / Bar</button>
+        <button class="seg" type="button" data-value="Retail / Storefront" aria-pressed="false">Retail / Storefront</button>
+        <button class="seg" type="button" data-value="Warehouse / Industrial" aria-pressed="false">Warehouse / Industrial</button>
+        <button class="seg" type="button" data-value="Other" aria-pressed="false">Other</button>
       </div>
 
       <div class="divider"></div>
 
-      <h2 class="h2">Step 3 — Dispatch details</h2>
+      <h2 class="h2">Step 4 — Pick a request window</h2>
+
+      <div class="label">Date (next 10 days)</div>
+      <div class="segRow" id="dateButtons" data-group="date"></div>
+
+      <div class="label">Time window</div>
+      <div class="segRow" data-group="time">
+        <button class="seg" type="button" data-value="8:00 AM – 10:00 AM">8–10 AM</button>
+        <button class="seg seg--active" type="button" data-value="10:00 AM – 12:00 PM">10–12 PM</button>
+        <button class="seg" type="button" data-value="12:00 PM – 2:00 PM">12–2 PM</button>
+        <button class="seg" type="button" data-value="2:00 PM – 4:00 PM">2–4 PM</button>
+        <button class="seg" type="button" data-value="4:00 PM – 6:00 PM">4–6 PM</button>
+        <button class="seg" type="button" data-value="After Hours (Request)">After Hours</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2 class="h2">Step 5 — Dispatch details (required)</h2>
       <p class="sub muted">Required fields unlock Send. This prevents back-and-forth.</p>
 
       <div class="grid2">
@@ -155,7 +172,7 @@
 
       <div>
         <label class="label" for="notes">Access / severity notes (optional)</label>
-        <textarea id="notes" rows="3" placeholder="Gate code, restroom count, odor, after-hours rules, who to ask for, etc."></textarea>
+        <textarea id="notes" rows="3" placeholder="Gate code, restroom count, odors, after-hours rules, who to ask for, etc."></textarea>
       </div>
 
       <div class="divider"></div>
@@ -172,51 +189,36 @@
 
       <div class="ctaRow">
         <button class="btn btn--dispatch" id="sendBookingTextBtn" type="button" disabled>Send Dispatch Request (Text)</button>
-        <a class="btn btn--ghost" id="emailBtn" href="#" aria-disabled="true">Send Dispatch (Email)</a>
-        <a class="btn btn--ghost" id="callBtn" href="#">Call</a>
+        <a class="btn btn--ghost" id="emailBtn" href="#" aria-disabled="true" style="pointer-events:none;opacity:.45;">Send Dispatch (Email)</a>
+        <a class="btn btn--ghost" id="callBtn" href="tel:+17738084447">Call</a>
       </div>
 
-      <p class="priorityLine" id="priorityLine">
+      <p class="priorityLine">
         Once you send, you’re in the <strong>priority queue</strong>. Expect a confirmation text.
       </p>
 
       <p class="tiny muted">
-        Serving: <strong>Chicago + nearby suburbs (Cook County)</strong>. Emergency/same-day is subject to availability.
+        Serving: <strong>Chicago + nearby suburbs (Cook County)</strong>. Emergency/same-day subject to availability.
         Read the <a href="disclaimer.html">disclaimer</a>.
       </p>
-
-      <div class="footerSeo">
-        Related pages:
-        <a href="commercial-bathroom-cleaning-chicago.html">Commercial Bathroom Cleaning Chicago</a> •
-        <a href="emergency-bathroom-deep-clean-chicago.html">Emergency Bathroom Deep Clean Chicago</a> •
-        <a href="commercial-restroom-cleaning-chicago.html">Commercial Restroom Cleaning Chicago</a>
-      </div>
     </section>
 
     <aside class="card card--side">
       <div class="sideTop">
-        <div class="sideTop__title">What happens after you send</div>
-        <div class="sideTop__sub">No fluff. Just confirmation.</div>
+        <div class="sideTop__title">After you send</div>
+        <div class="sideTop__sub">Confirmation or earliest alternative. No games.</div>
       </div>
 
       <div class="divider"></div>
-
       <ol class="afterPanel__steps">
         <li>We review your dispatch details.</li>
-        <li>We confirm your requested window or propose the earliest available slot.</li>
+        <li>We confirm your requested window by text or propose the earliest option.</li>
         <li>If needed, you pay the deep clean link after confirmation.</li>
       </ol>
 
       <div class="divider"></div>
-
       <div class="note">
-        Tip: If you want the fastest confirmation, include the exact address and access rules (after-hours, keys, codes).
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="tiny muted">
-        Emergency/same-day is availability-based. We move fast, but we won’t lie about timing.
+        Tip: The fastest confirmations include full address + access rules (keys, codes, after-hours).
       </div>
     </aside>
   </main>
@@ -225,15 +227,212 @@
     <div class="sticky__inner">
       <div>
         <div class="sticky__title">Priority Dispatch</div>
-        <div class="sticky__sub" id="stickySub">Pay deposit + confirm + fill required fields.</div>
+        <div class="sticky__sub" id="stickySub">Pay deposit + confirm + required fields.</div>
       </div>
       <div class="sticky__right">
-        <a class="btn btn--primary btn--sm" id="payDepositBtnSticky" href="#" target="_blank" rel="noopener">Pay Deposit</a>
+        <a class="btn btn--primary btn--sm" id="payDepositBtnSticky" href="https://store.webmastereric.com/product/bathroom-cleaning-ticket/" target="_blank" rel="noopener">Pay Deposit</a>
         <button class="btn btn--dispatch btn--sm" id="sendBookingTextBtnSticky" type="button" disabled>Send</button>
       </div>
     </div>
   </div>
 
-  <script src="assets/app.js"></script>
+  <script>
+    // INLINE JS — bulletproof, no external dependency
+    (function(){
+      const PHONE_E164 = "+17738084447";
+      const EMAIL_TO = "support@webmastereric.com";
+      const DEEP_CLEAN_LINK = "https://store.webmastereric.com/product/bathroom-deep-clean/";
+
+      const $ = (sel) => document.querySelector(sel);
+      const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+      const jsStatus = $("#jsStatus");
+      jsStatus.textContent = "JS: ON";
+
+      const state = {
+        urgency: "Standard",
+        bizType: "Office / Building",
+        date: "",
+        time: "10:00 AM – 12:00 PM"
+      };
+
+      const depositConfirm = $("#depositConfirm");
+      const address = $("#address");
+      const contactName = $("#contactName");
+      const contactPhone = $("#contactPhone");
+      const contactEmail = $("#contactEmail");
+      const notes = $("#notes");
+
+      const readyChip = $("#readyChip");
+      const readySub = $("#readySub");
+      const stickySub = $("#stickySub");
+
+      const sendBtn = $("#sendBookingTextBtn");
+      const sendBtnSticky = $("#sendBookingTextBtnSticky");
+      const emailBtn = $("#emailBtn");
+
+      function setActive(group, value){
+        $$(`[data-group="${group}"] [data-value]`).forEach(btn=>{
+          const on = btn.getAttribute("data-value") === value;
+          btn.classList.toggle("seg--active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+
+      function todayLocal(){
+        const d = new Date();
+        return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+      }
+      function addDays(d, days){
+        const nd = new Date(d);
+        nd.setDate(nd.getDate() + days);
+        return nd;
+      }
+      function fmtDate(d){
+        const y = d.getFullYear();
+        const m = String(d.getMonth()+1).padStart(2,"0");
+        const day = String(d.getDate()).padStart(2,"0");
+        return `${y}-${m}-${day}`;
+      }
+      function prettyDate(d){
+        return d.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"});
+      }
+
+      function populateDates(){
+        const wrap = $("#dateButtons");
+        wrap.innerHTML = "";
+        const start = addDays(todayLocal(), 1); // min 24h
+        for(let i=0;i<10;i++){
+          const d = addDays(start,i);
+          const val = fmtDate(d);
+          const btn = document.createElement("button");
+          btn.type="button";
+          btn.className="seg";
+          btn.setAttribute("data-value", val);
+          btn.innerHTML = `<div class="seg__top">${prettyDate(d)}</div><div class="seg__bot">${val}</div>`;
+          btn.addEventListener("click", ()=>{
+            state.date = val;
+            setActive("date", val);
+            build();
+          });
+          wrap.appendChild(btn);
+        }
+        const first = wrap.querySelector("[data-value]");
+        if(first){
+          state.date = first.getAttribute("data-value");
+          setActive("date", state.date);
+        }
+      }
+
+      function compileDispatch(){
+        const a = (address.value||"").trim() || "—";
+        const n = (contactName.value||"").trim() || "—";
+        const p = (contactPhone.value||"").trim() || "—";
+        const e = (contactEmail.value||"").trim() || "—";
+        const no = (notes.value||"").trim() || "None";
+
+        return (
+`DISPATCH REQUEST — Commercial Bathroom Cleaning (Chicago)
+
+Deposit: CUSTOMER CONFIRMS PAID ($29)
+
+Urgency: ${state.urgency}
+Business Type: ${state.bizType}
+
+Requested Window:
+Date: ${state.date}
+Time: ${state.time}
+
+Service Address:
+${a}
+
+On-site Contact:
+Name: ${n}
+Phone: ${p}
+Email: ${e}
+
+Access / Notes:
+${no}
+
+Deep Clean Pay Link (after confirmation):
+${DEEP_CLEAN_LINK}`
+        );
+      }
+
+      function validate(){
+        const addrOk = (address.value||"").trim().length >= 8;
+        const nameOk = (contactName.value||"").trim().length >= 2;
+        const phoneOk = (contactPhone.value||"").trim().length >= 7;
+        const emailOk = (contactEmail.value||"").includes("@");
+        const depositOk = depositConfirm.checked;
+        const dateOk = !!state.date;
+        return addrOk && nameOk && phoneOk && emailOk && depositOk && dateOk;
+      }
+
+      function smsHref(body){
+        return `sms:${PHONE_E164}?&body=${encodeURIComponent(body)}`;
+      }
+      function mailHref(subject, body){
+        return `mailto:${encodeURIComponent(EMAIL_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
+
+      function build(){
+        const ok = validate();
+        const msg = compileDispatch();
+
+        sendBtn.disabled = !ok;
+        sendBtnSticky.disabled = !ok;
+
+        sendBtn.dataset.sms = smsHref(msg);
+        sendBtnSticky.dataset.sms = smsHref(msg);
+
+        emailBtn.href = mailHref("Dispatch Request — Commercial Bathroom Cleaning", msg);
+        emailBtn.style.pointerEvents = ok ? "auto" : "none";
+        emailBtn.style.opacity = ok ? "1" : "0.45";
+        emailBtn.setAttribute("aria-disabled", String(!ok));
+
+        if(ok){
+          readyChip.textContent = "Ready";
+          readyChip.classList.add("chip--live");
+          readySub.textContent = "Ready. Tap Send to request dispatch now.";
+          stickySub.textContent = "Ready. Tap Send now.";
+        }else{
+          readyChip.textContent = "Not ready";
+          readyChip.classList.remove("chip--live");
+          readySub.textContent = "Pay deposit + confirm + fill required fields to unlock Send.";
+          stickySub.textContent = "Pay deposit + confirm + required fields.";
+        }
+      }
+
+      function wire(group, key){
+        $$(`[data-group="${group}"] [data-value]`).forEach(btn=>{
+          btn.addEventListener("click", ()=>{
+            state[key] = btn.getAttribute("data-value");
+            setActive(group, state[key]);
+            build();
+          });
+        });
+      }
+
+      populateDates();
+      wire("urgency", "urgency");
+      wire("biz", "bizType");
+      wire("time", "time");
+
+      setActive("urgency", state.urgency);
+      setActive("biz", state.bizType);
+      setActive("time", state.time);
+
+      [depositConfirm,address,contactName,contactPhone,contactEmail,notes].forEach(el=>{
+        el.addEventListener("input", build);
+        el.addEventListener("change", build);
+      });
+
+      sendBtn.addEventListener("click", ()=>{ if(sendBtn.dataset.sms) location.href = sendBtn.dataset.sms; });
+      sendBtnSticky.addEventListener("click", ()=>{ if(sendBtnSticky.dataset.sms) location.href = sendBtnSticky.dataset.sms; });
+
+      build();
+    })();
+  </script>
 </body>
 </html>
