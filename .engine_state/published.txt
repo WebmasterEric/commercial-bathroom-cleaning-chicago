@@ -28,3 +28,13 @@ commercial-bathroom-sanitation-lincoln-park-60614-business.html
 commercial-restroom-cleaning-avondale-60618-services.html
 commercial-restroom-cleaning-hyde-park-60615-services.html
 commercial-restroom-cleaning-logan-square-60647-services.html
+commercial-restroom-cleaning-loop-60601-services.html
+commercial-restroom-cleaning-river-north-60654-services.html
+commercial-restroom-cleaning-south-loop-60605-services.html
+commercial-restroom-deep-clean-west-loop-60607-dispatch.html
+commercial-restroom-sanitation-bucktown-60647-professional.html
+commercial-restroom-sanitation-chinatown-60616-professional.html
+emergency-bathroom-cleaning-pilsen-60608-same-day.html
+emergency-bathroom-cleaning-south-loop-60605-same-day.html
+medical-restroom-cleaning-hyde-park-60615-compliant.html
+office-restroom-cleaning-bucktown-60647-local.html
