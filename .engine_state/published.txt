@@ -38,3 +38,11 @@ emergency-bathroom-cleaning-pilsen-60608-same-day.html
 emergency-bathroom-cleaning-south-loop-60605-same-day.html
 medical-restroom-cleaning-hyde-park-60615-compliant.html
 office-restroom-cleaning-bucktown-60647-local.html
+office-restroom-cleaning-west-loop-60607-local.html
+office-restroom-cleaning-wicker-park-60622-local.html
+restaurant-bathroom-cleaning-chinatown-60616-fast.html
+restaurant-bathroom-cleaning-logan-square-60647-fast.html
+restaurant-bathroom-cleaning-river-north-60654-fast.html
+restaurant-restroom-cleaning-lincoln-park-60614-professional.html
+restaurant-restroom-cleaning-pilsen-60608-local.html
+warehouse-restroom-cleaning-avondale-60618-industrial.html
